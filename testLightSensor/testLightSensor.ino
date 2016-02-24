@@ -9,9 +9,11 @@ log analog light sensor data
 // 53 on the Mega) must be left as an output or the SD library
 // functions will not work.
 const int chipSelect = 4;
-const int sensorPin = A0;    // select the input pin for sensor
+const int sensorPin_1 = A0;    // select the input pin for sensor
+const int sensorPin_2 = A1;
 const int delayTime = 5000; // milliseconds
-int sensorValue = 0;
+int sensorValue_1 = 0;
+int sensorValue_2 = 0;
 int logOpened = 0;
 
 unsigned long time;
@@ -38,11 +40,14 @@ void loop(){
 	String dataString = "";
 
   // read sensor value and append to dataString
-	sensorValue = analogRead(sensorPin);
+  sensorValue_1 = analogRead(sensorPin_1);
+  sensorValue_2 = analogRead(sensorPin_2);
   time = millis();
   dataString += String(time);
   dataString += ",";
-  dataString += String(sensorValue);
+  dataString += String(sensorValue_1);
+  dataString += ",";
+  dataString += String(sensorValue_2);
   dataString += ",";
 
   // open the file. note that only one file can be open at a time,
