@@ -1,0 +1,5 @@
+learning NS_Rainbow library
+
+NS_Rainbow ns_stick = NS_Rainbow(N_CELL,PIN);
+
+ns_stick.begin(); // inits the object
